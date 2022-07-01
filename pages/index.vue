@@ -2,38 +2,38 @@
 import * as THREE from "three";
 import * as dat from "lil-gui";
 
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-
+import { DoubleSide } from "three";
 const myCanvas = ref();
-function first() {
-    console.log("觸發事件1");
-}
+
+const gui = process.client ? new dat.GUI() : null;
+const textureLoader = new THREE.TextureLoader();
 
 onMounted(async () => {
-    const MCL = await import("mobile-console-lite");
-    new MCL.MCL();
-    const gui = new dat.GUI();
+    const { OrbitControls } = await import("three/examples/jsm/controls/OrbitControls");
     // Scene
     const scene = new THREE.Scene(); //建立場景
-    console.log("three");
+    //Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
 
-    // Object
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    const material = new THREE.MeshNormalMaterial();
-    // Mesh
-    const mesh = new THREE.Mesh(geometry, material);
-    let debugEvents = {
-        first: () => {
-            console.log("觸發事件1");
-        },
-    };
+    scene.add(ambientLight);
+    const material = new THREE.MeshStandardMaterial({
+        side: DoubleSide,
+    });
 
-    gui.add(mesh.position, "x").name("x軸").min(0).max(2).step(0.1);
-    gui.add(mesh.position, "y").name("y軸").min(0).max(2).step(0.1);
-    gui.add(debugEvents, "first").name("事件1");
-    scene.add(mesh);
-    console.log("two");
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 16, 16), material);
+    sphere.position.x = -1.5;
+
+    const box = new THREE.Mesh(new THREE.BoxGeometry(1, 1), material);
+    box.position.y = 0.35;
+    box.rotation.x = Math.PI * 0.25;
+    box.rotation.y = Math.PI * 0.25;
+    const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5, 20, 20), material);
+    plane.rotation.x = Math.PI * -0.5;
+    plane.position.y = -0.5;
+    const torus = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 16, 32), material);
+    torus.position.x = 1.5;
+
+    scene.add(sphere, box, plane, torus);
 
     // Sizes
     const sizes = {
@@ -57,17 +57,18 @@ onMounted(async () => {
     // Control
 
     //以下為最簡短操作需求
-    // const orbitControl = new OrbitControls(camera, myCanvas.value);
+    const orbitControl = new OrbitControls(camera, myCanvas.value);
 
     // Animate
     const tick = () => {
         // Render
+
         renderer.render(scene, camera);
     };
 
     window.addEventListener("resize", () => {
         //Controls
-        // orbitControl.update();
+        orbitControl.update();
         // Update sizes
         sizes.width = window.innerWidth;
         sizes.height = window.innerHeight;
@@ -77,6 +78,7 @@ onMounted(async () => {
         camera.aspect = sizes.width / sizes.height; //這個值是預防圖像扭曲
         camera.updateProjectionMatrix(); //然後執行這個來更新camera內部數值
     });
+
     renderer.setAnimationLoop(tick);
 });
 </script>
