@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const myCanvas = ref();
 
@@ -39,7 +39,7 @@ onMounted(() => {
     // Control
 
     //以下為最簡短操作需求
-    const orbitControl = new OrbitControls(camera, myCanvas.value);
+    // const orbitControl = new OrbitControls(camera, myCanvas.value);
 
     // Animate
     const tick = () => {
@@ -49,7 +49,7 @@ onMounted(() => {
 
     window.addEventListener("resize", () => {
         //Controls
-        orbitControl.update();
+        // orbitControl.update();
         // Update sizes
         sizes.width = window.innerWidth;
         sizes.height = window.innerHeight;
