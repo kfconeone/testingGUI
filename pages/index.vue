@@ -15,6 +15,7 @@ onMounted(() => {
     const gui = new dat.GUI();
     // Scene
     const scene = new THREE.Scene(); //建立場景
+    console.log("three");
 
     // Object
     const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -32,6 +33,7 @@ onMounted(() => {
     gui.add(mesh.position, "y").name("y軸").min(0).max(2).step(0.1);
     gui.add(debugEvents, "first").name("事件1");
     scene.add(mesh);
+    console.log("two");
 
     // Sizes
     const sizes = {
