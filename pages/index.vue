@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import * as THREE from "three";
 import * as dat from "lil-gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -106,16 +106,17 @@ onMounted(() => {
 function ShowDebug() {
     mobileConsole.toggle();
 }
-</script>
+</script> -->
 
 <template>
     <div>
         <Head>
             <Script src="hnl.mobileConsole.js"></Script>
         </Head>
-        <div class="fixed top-0 left-0 z-50 bg-white shadow-md w-fit">
+        dsadsadsad
+        <!-- <div class="fixed top-0 left-0 z-50 bg-white shadow-md w-fit">
             <button @click="ShowDebug">show debug</button>
-        </div>
+        </div> -->
         <canvas ref="myCanvas"> </canvas>
     </div>
 </template>
