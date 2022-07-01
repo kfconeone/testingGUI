@@ -62,8 +62,6 @@ onMounted(() => {
         // Render
         renderer.render(scene, camera);
     };
-    console.log(mobileConsole);
-    mobileConsole.init();
 
     window.addEventListener("resize", () => {
         //Controls
@@ -79,9 +77,11 @@ onMounted(() => {
     });
     renderer.setAnimationLoop(tick);
 });
-// function ShowDebug() {
-//     mobileConsole.toggle();
-// }
+function ShowDebug() {
+    console.log(mobileConsole);
+    mobileConsole.init();
+    // mobileConsole.toggle();
+}
 </script>
 
 <template>
@@ -89,10 +89,10 @@ onMounted(() => {
         <Head>
             <Script src="hnl.mobileConsole.js"></Script>
         </Head>
-        <!-- 
+
         <div class="fixed top-0 right-0 z-50 bg-white shadow-md w-fit">
             <button @click="ShowDebug">show debug</button>
-        </div> -->
+        </div>
         <canvas ref="myCanvas"> </canvas>
     </div>
 </template>
