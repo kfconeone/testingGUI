@@ -1,4 +1,4 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import * as THREE from "three";
 import * as dat from "lil-gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -16,8 +16,8 @@ const debugEvents = {
 
 var text;
 onMounted(() => {
-    console.log(mobileConsole);
-    mobileConsole.init();
+    // console.log(mobileConsole);
+    // mobileConsole.init();
     // Scene
     const scene = new THREE.Scene(); //建立場景
     //Lights
@@ -103,10 +103,10 @@ onMounted(() => {
     renderer.setAnimationLoop(tick);
 });
 
-function ShowDebug() {
-    mobileConsole.toggle();
-}
-</script> -->
+// function ShowDebug() {
+//     mobileConsole.toggle();
+// }
+</script>
 
 <template>
     <div>
