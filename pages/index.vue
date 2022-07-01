@@ -10,8 +10,8 @@ function first() {
 }
 
 onMounted(() => {
-    console.log(mobileConsole);
-    mobileConsole.init();
+    // console.log(mobileConsole);
+    // mobileConsole.init();
     const gui = new dat.GUI();
     // Scene
     const scene = new THREE.Scene(); //建立場景
@@ -79,19 +79,19 @@ onMounted(() => {
     });
     renderer.setAnimationLoop(tick);
 });
-function ShowDebug() {
-    mobileConsole.toggle();
-}
+// function ShowDebug() {
+//     mobileConsole.toggle();
+// }
 </script>
 
 <template>
     <div>
-        <Head>
+        <!-- <Head>
             <Script src="hnl.mobileConsole.js"></Script>
         </Head>
         <div class="fixed top-0 right-0 z-50 bg-white shadow-md w-fit">
             <button @click="ShowDebug">show debug</button>
-        </div>
+        </div> -->
         <canvas ref="myCanvas"> </canvas>
     </div>
 </template>
