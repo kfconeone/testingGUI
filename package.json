@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/three": "^0.141.0",
     "lil-gui": "^0.16.1",
+    "mobile-console-lite": "^1.0.7",
     "three": "^0.142.0"
   }
 }

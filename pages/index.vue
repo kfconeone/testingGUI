@@ -9,7 +9,9 @@ function first() {
     console.log("觸發事件1");
 }
 
-onMounted(() => {
+onMounted(async () => {
+    const MCL = await import("mobile-console-lite");
+    new MCL.MCL();
     const gui = new dat.GUI();
     // Scene
     const scene = new THREE.Scene(); //建立場景
@@ -77,22 +79,10 @@ onMounted(() => {
     });
     renderer.setAnimationLoop(tick);
 });
-function ShowDebug() {
-    console.log(mobileConsole);
-    mobileConsole.init();
-    // mobileConsole.toggle();
-}
 </script>
 
 <template>
     <div>
-        <!-- <Head>
-            <Script src="hnl.mobileConsole.js"></Script>
-        </Head> -->
-
-        <div class="fixed top-0 right-0 z-50 bg-white shadow-md w-fit">
-            <button @click="ShowDebug">show debug</button>
-        </div>
         <canvas ref="myCanvas"> </canvas>
     </div>
 </template>

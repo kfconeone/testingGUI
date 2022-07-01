@@ -3108,6 +3108,11 @@ mlly@^0.5.2, mlly@^0.5.3, mlly@^0.5.4:
     pathe "^0.3.1"
     pkg-types "^0.3.3"
 
+mobile-console-lite@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/mobile-console-lite/-/mobile-console-lite-1.0.7.tgz#e9e8990db1049f04284b97233686f804431a3bbd"
+  integrity sha512-k2ulvmzPyuk5+bWflW6HyDKHJG1dI/HlqU7BC8rQO9jLos0fltQiiDdrlnhtlYAVcegoo97ggnujFu16li11oA==
+
 mri@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
