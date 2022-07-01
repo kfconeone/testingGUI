@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import * as THREE from "three";
-// import * as dat from "lil-gui";
+import * as dat from "lil-gui";
 
 // import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const myCanvas = ref();
+function first() {
+    console.log("觸發事件1");
+}
 
 onMounted(() => {
+    console.log(mobileConsole);
+    mobileConsole.init();
+    const gui = new dat.GUI();
     // Scene
     const scene = new THREE.Scene(); //建立場景
 
@@ -16,7 +22,15 @@ onMounted(() => {
     const material = new THREE.MeshNormalMaterial();
     // Mesh
     const mesh = new THREE.Mesh(geometry, material);
+    let debugEvents = {
+        first: () => {
+            console.log("觸發事件1");
+        },
+    };
 
+    gui.add(mesh.position, "x").name("x軸").min(0).max(2).step(0.1);
+    gui.add(mesh.position, "y").name("y軸").min(0).max(2).step(0.1);
+    gui.add(debugEvents, "first").name("事件1");
     scene.add(mesh);
 
     // Sizes
@@ -63,10 +77,19 @@ onMounted(() => {
     });
     renderer.setAnimationLoop(tick);
 });
+function ShowDebug() {
+    mobileConsole.toggle();
+}
 </script>
 
 <template>
     <div>
+        <Head>
+            <Script src="hnl.mobileConsole.js"></Script>
+        </Head>
+        <div class="fixed top-0 right-0 z-50 bg-white shadow-md w-fit">
+            <button @click="ShowDebug">show debug</button>
+        </div>
         <canvas ref="myCanvas"> </canvas>
     </div>
 </template>
