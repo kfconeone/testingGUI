@@ -61,9 +61,9 @@ onMounted(() => {
     const tick = () => {
         // Render
         renderer.render(scene, camera);
-        console.log(mobileConsole);
-        mobileConsole.init();
     };
+    console.log(mobileConsole);
+    mobileConsole.init();
 
     window.addEventListener("resize", () => {
         //Controls
