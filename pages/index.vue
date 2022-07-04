@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import * as THREE from "three";
 import * as dat from "lil-gui";
-
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { DoubleSide } from "three";
 const myCanvas = ref();
 
@@ -9,7 +9,7 @@ const gui = process.client ? new dat.GUI() : null;
 const textureLoader = new THREE.TextureLoader();
 
 onMounted(async () => {
-    const { OrbitControls } = await import("three/examples/jsm/controls/OrbitControls");
+    // const { OrbitControls } = await import("three/examples/jsm/controls/OrbitControls");
     // Scene
     const scene = new THREE.Scene(); //建立場景
     //Lights
